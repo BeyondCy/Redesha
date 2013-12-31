@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 	try 
 	{
 		Redesha::LoginServer loginServer;
-		//loginServer.run();
+		loginServer.run();
 	}
 	catch (const std::exception &e)
 	{
