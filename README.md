@@ -28,7 +28,7 @@ Client
 
 The **RedeshaClient** client process is designed to provide a seamless world without the need to load individual zones (the server-side code is still managed as zones to spread apart the network load).  It is meant to compile and run natively on any platform that the Ogre3D engine supports.  Ogre3D provides amazing framerates for high quality graphics.
 
-<p style="text-align:center"><img src="http://i.imgur.com/FYDWXkS.png" alt="Windows, Mac OS X, Linux, iOS, Android" /></p>
+<center><img src="http://i.imgur.com/FYDWXkS.png" alt="Windows, Mac OS X, Linux, iOS, Android" /></center>
 
 Server
 -------------------------
