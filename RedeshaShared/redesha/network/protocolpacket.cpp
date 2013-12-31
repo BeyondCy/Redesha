@@ -3,7 +3,7 @@
 using namespace Redesha;
 
 ProtocolPacket::ProtocolPacket(const unsigned char* rawPacket, size_t rawSize)
-    : _rawPacketSize(rawSize), _valid(false), _sendchannel(0)
+    : _payloadBuffer(nullptr), _rawPacketBuffer(nullptr), _rawPacketSize(rawSize), _valid(false), _sendchannel(0)
 {
     if (rawSize < 4)
         return;
@@ -24,7 +24,7 @@ ProtocolPacket::ProtocolPacket(const unsigned char* rawPacket, size_t rawSize)
 }
 
 ProtocolPacket::ProtocolPacket(uint16_t opcode, const unsigned char* rawStruct, size_t structSize)
-    : _opcode(opcode), _valid(true), _sendchannel(0)
+    :  _payloadBuffer(nullptr), _rawPacketBuffer(nullptr), _opcode(opcode), _valid(true), _sendchannel(0)
 {
     this->_rawPacketSize = 1 + 2 + 1 + structSize + 1 + 4 + 1;
     this->_rawPacketBuffer = new unsigned char[this->_rawPacketSize];
