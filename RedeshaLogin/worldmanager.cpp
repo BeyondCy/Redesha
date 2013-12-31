@@ -5,6 +5,7 @@ using namespace Redesha;
 WorldManager::WorldManager(unsigned short port)
 	: UdpServer(port)
 {
+	LOG(INFO) << "WorldManager starting";
 }
 
 

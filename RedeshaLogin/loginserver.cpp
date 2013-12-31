@@ -5,7 +5,8 @@ using namespace Redesha;
 LoginServer::LoginServer(void)
 {
 	//this->clientListener = 
-	this->worldManager = new WorldManager(8999);
+	LOG(INFO) << "LoginServer starting";
+	this->worldManager = new WorldManager(5998);
 }
 
 

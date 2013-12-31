@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <algorithm>
 
+#include "../../log/logger.h"
+
 namespace Redesha  {
 
     class ProtocolPacket

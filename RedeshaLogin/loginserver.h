@@ -6,6 +6,8 @@
 
 #include "worldmanager.h"
 
+#include <log/logger.h>
+
 namespace Redesha 
 {
 
