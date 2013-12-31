@@ -77,6 +77,4 @@ void UdpServer::handleWrite()
 
 	for (auto stream : wants_write)
 		stream->process();
-
-	std::this_thread::sleep_for(std::chrono::milliseconds(10));
 }

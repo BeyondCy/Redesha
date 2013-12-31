@@ -28,6 +28,7 @@ void UdpStream::initialize()
 
 void UdpStream::startThreads()
 {
+	LOG(INFO) << "UDPStream thread loops spawned by thread id: " << std::this_thread::get_id();
 	this->readThread = std::thread(&UdpStream::readLoop, this);
 	this->writeThread = std::thread(&UdpStream::writeLoop, this);
 }
@@ -79,16 +80,16 @@ void UdpStream::setSocket(unsigned short port, const char* host)
 void UdpStream::readLoop()
 {
 	ENetEvent event;
-    int serviceResult = 0;
+	int serviceResult = 0;
+	LOG(INFO) << "Read loop entered by thread: " << std::this_thread::get_id();
 	while (true)
 	{
+		serviceResult = 1;
 		/* Keep doing host_service until no events are left */
 		while (serviceResult > 0)
 		{
 			
-			serviceResult = enet_host_service(this->socket, &event, 100);
-
-			LOG(DEBUG) << "Service result: " << serviceResult;
+			serviceResult = enet_host_service(this->socket, &event, 1000);
 
 			if (serviceResult > 0) 
 			{
@@ -115,9 +116,12 @@ void UdpStream::readLoop()
 
 void UdpStream::writeLoop()
 {
-	enet_host_flush(this->socket);
 	while (true)
+	{
 		this->handleWrite();
+		enet_host_flush(this->socket);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+	}
 }
 
 void UdpStream::handleConnect(ENetEvent* e)
