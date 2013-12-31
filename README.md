@@ -3,7 +3,7 @@ Redesha
 
 Redesha is an open source 3D MMO project using the following permissively-licensed libraries:
 
-* [Ogre3D Graphics Engine](http://ogre3d.com) (MIT  license)
+* [Ogre3D Graphics Engine](http://ogre3d.org) (MIT  license)
 * [Bullet Physics Library](http://bulletphysics.org/) (zlib license)
 * [SFML Sound Library](http://sfml-dev.org/) (zlib license)
 * [OIS Input Library](http://sourceforge.net/projects/wgois/) (zlib license)
