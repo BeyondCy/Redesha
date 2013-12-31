@@ -26,13 +26,9 @@ Redesha is an open source 3D MMO project using the following permissively-licens
 Client
 -------------------------
 
-The **RedeshaClient** client process is designed to provide a seamless world without the need to load individual zones (the server-side code is still managed as zones to spread apart the network load).  It is meant to compile and run natively on any platform that the Ogre3D engine supports, including but not limited to:
+The **RedeshaClient** client process is designed to provide a seamless world without the need to load individual zones (the server-side code is still managed as zones to spread apart the network load).  It is meant to compile and run natively on any platform that the Ogre3D engine supports.  Ogre3D provides amazing framerates for high quality graphics.
 
-* Windows
-* Linux
-* Mac
-* Android
-* iOS
+<p style="text-align:center"><img src="http://i.imgur.com/FYDWXkS.png" alt="Windows, Mac OS X, Linux, iOS, Android" /></p>
 
 Server
 -------------------------
@@ -60,7 +56,6 @@ The RedeshaZone servers are spawned by RedeshaWorld servers and handle most clie
 * ClientManager - read/write IO threads for connecting RedeshaClient clients
 * WorldManager - read/write IO threads for communication wtih RedeshaWorld server
 * Main Thread - Processes packets
-
 
 Shared
 -------------------------
