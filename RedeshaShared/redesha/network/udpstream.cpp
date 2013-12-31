@@ -7,14 +7,12 @@ UdpStream::UdpStream(const char* host, unsigned short port)
 {
 	this->initialize();
 	this->setSocket(port, host);
-	this->startThreads();
 }
 
 UdpStream::UdpStream(unsigned short port)
 {
 	this->initialize();
 	this->setSocket(port);
-	this->startThreads();
 }
 
 unsigned int UdpStream::sessions = 0;
@@ -88,7 +86,9 @@ void UdpStream::readLoop()
 		while (serviceResult > 0)
 		{
 			
-			serviceResult = enet_host_service(this->socket, &event, 10000);
+			serviceResult = enet_host_service(this->socket, &event, 100);
+
+			LOG(DEBUG) << "Service result: " << serviceResult;
 
 			if (serviceResult > 0) 
 			{
@@ -122,15 +122,16 @@ void UdpStream::writeLoop()
 
 void UdpStream::handleConnect(ENetEvent* e)
 {
-	printf ("Connect from %x:%u.\n",	e->peer->address.host, e->peer->address.port);
+	LOG(INFO) << "Connection received: " << e->peer->address.host << "/" << e->peer->address.port;
 }
 
 void UdpStream::handleDisconnect(ENetEvent* e)
 {
-	printf ("Diconnect from %x:%u.\n",	e->peer->address.host, e->peer->address.port);
+	LOG(INFO) << "Connection termination: " << e->peer->address.host << "/" << e->peer->address.port;
 }
 
 void UdpStream::handleReceive(ENetEvent* e)
 {
+	LOG(INFO) << "Destroying UDP packet from: " << e->peer->address.host << "/" << e->peer->address.port;
     enet_packet_destroy(e->packet);
 }
