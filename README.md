@@ -8,17 +8,17 @@ Redesha is an open source 3D MMO project using the following permissively-licens
     <th>Library</th><th>Component</th><th>URL</th><th>License</th>
   </tr>
   <tr>
-    <td>**Ogre3D**</td><td>Graphics Renderer</td><td>http://ogre3d.org</td><td>MIT</td>
+    <th>Ogre3D</th><td>Graphics Renderer</td><td>http://ogre3d.org</td><td>MIT</td>
 </tr><tr>
-	<td>**Bullet**</td><td>Physics</td><td>http://bulletphysics.org</td><td>zlib</td>
+	<th>Bullet</th><td>Physics</td><td>http://bulletphysics.org</td><td>zlib</td>
 </tr><tr>
-	<td>**SFML**</td><td>Sound</td><td>http://sfml-dev.org</td><td>zlib</td>
+	<th>SFML</th><td>Sound</td><td>http://sfml-dev.org</td><td>zlib</td>
 </tr><tr>
-	<td>**OIS**</td><td>Input</td><td>http://sourceforge.net/projects/wgois/</td><td>zlib</td>
+	<th>OIS</th><td>Input</td><td>http://sourceforge.net/projects/wgois/</td><td>zlib</td>
 </tr><tr>
-	<td>**ENet**</td><td>UDP Networking</td><td>http://enet.bespin.org</td><td>ENet</td>
+	<th>ENet</th><td>UDP Networking</td><td>http://enet.bespin.org</td><td>ENet</td>
 </tr><tr>
-	<td>**RapidXML**</td><td>Parser</td><td>http://rapidxml.sourceforge.net</td><td>Boost</td>
+	<th>RapidXML</th><td>Parser</td><td>http://rapidxml.sourceforge.net</td><td>Boost</td>
 </tr>
 </table>
 </p>
