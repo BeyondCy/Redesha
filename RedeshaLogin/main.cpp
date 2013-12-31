@@ -1,5 +1,7 @@
 #include "loginserver.h"
 
+_INITIALIZE_EASYLOGGINGPP
+
 int main(int argc, char* argv[])
 {
 	try 
@@ -9,6 +11,6 @@ int main(int argc, char* argv[])
 	}
 	catch (const std::exception &e)
 	{
-		printf("Exception: %s", e.what());
+		LOG(FATAL) << "Exception: " << e.what();
 	}
 }
