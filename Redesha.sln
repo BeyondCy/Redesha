@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedeshaServer", "RedeshaServer\RedeshaServer.vcxproj", "{32DBA979-8FF2-409D-8B2A-479DDAABAF3B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedeshaShared", "RedeshaShared\RedeshaShared.vcxproj", "{8680B9C7-0AF5-4C08-B91F-76048BDAF88C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedeshaLogin", "RedeshaLogin\RedeshaLogin.vcxproj", "{BECE8090-1EF2-4263-9E6A-59C6840EB788}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedeshaClient", "RedeshaClient\Redesha.vcxproj", "{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32DBA979-8FF2-409D-8B2A-479DDAABAF3B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{32DBA979-8FF2-409D-8B2A-479DDAABAF3B}.Debug|Win32.Build.0 = Debug|Win32
+		{32DBA979-8FF2-409D-8B2A-479DDAABAF3B}.Release|Win32.ActiveCfg = Release|Win32
+		{32DBA979-8FF2-409D-8B2A-479DDAABAF3B}.Release|Win32.Build.0 = Release|Win32
+		{8680B9C7-0AF5-4C08-B91F-76048BDAF88C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8680B9C7-0AF5-4C08-B91F-76048BDAF88C}.Debug|Win32.Build.0 = Debug|Win32
+		{8680B9C7-0AF5-4C08-B91F-76048BDAF88C}.Release|Win32.ActiveCfg = Release|Win32
+		{8680B9C7-0AF5-4C08-B91F-76048BDAF88C}.Release|Win32.Build.0 = Release|Win32
+		{BECE8090-1EF2-4263-9E6A-59C6840EB788}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BECE8090-1EF2-4263-9E6A-59C6840EB788}.Debug|Win32.Build.0 = Debug|Win32
+		{BECE8090-1EF2-4263-9E6A-59C6840EB788}.Release|Win32.ActiveCfg = Release|Win32
+		{BECE8090-1EF2-4263-9E6A-59C6840EB788}.Release|Win32.Build.0 = Release|Win32
+		{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}.Debug|Win32.Build.0 = Debug|Win32
+		{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}.Release|Win32.ActiveCfg = Release|Win32
+		{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
