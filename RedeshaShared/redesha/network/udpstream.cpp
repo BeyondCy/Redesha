@@ -111,7 +111,7 @@ void UdpStream::readLoop()
 {
 	ENetEvent event;
 	int serviceResult = 0;
-	LOG(INFO) << "Read loop entered by thread: " << std::this_thread::get_id();
+
 	while (true)
 	{
 		serviceResult = 1;
@@ -151,7 +151,7 @@ void UdpStream::writeLoop()
 	while (this->writeRun)
 	{
 		this->handleWrite();
-		enet_host_flush(this->socket);
+		//enet_host_flush(this->socket);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 }
