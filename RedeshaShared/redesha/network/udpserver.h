@@ -2,7 +2,6 @@
 #define REDESHA_UDPSERVER_H
 
 #include <memory>
-#include "packets/opcodes.h"
 #include "udpstream.h"
 
 namespace Redesha 

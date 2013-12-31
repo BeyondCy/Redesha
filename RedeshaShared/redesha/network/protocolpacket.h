@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <algorithm>
 
+#include "packets/opcodes.h"
+
 #include "../../log/logger.h"
 
 namespace Redesha  {
