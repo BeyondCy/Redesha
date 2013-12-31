@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedeshaLogin", "RedeshaLogi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedeshaClient", "RedeshaClient\Redesha.vcxproj", "{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RedeshaZone", "RedeshaZone\RedeshaZone.vcxproj", "{46615895-5AFB-417B-81D5-70FF82306AC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +33,10 @@ Global
 		{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}.Debug|Win32.Build.0 = Debug|Win32
 		{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}.Release|Win32.ActiveCfg = Release|Win32
 		{7C7342C1-77A1-4B4F-A23F-1FB622161ECE}.Release|Win32.Build.0 = Release|Win32
+		{46615895-5AFB-417B-81D5-70FF82306AC2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{46615895-5AFB-417B-81D5-70FF82306AC2}.Debug|Win32.Build.0 = Debug|Win32
+		{46615895-5AFB-417B-81D5-70FF82306AC2}.Release|Win32.ActiveCfg = Release|Win32
+		{46615895-5AFB-417B-81D5-70FF82306AC2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
