@@ -37,12 +37,17 @@ void UdpServer::handleReceive(ENetEvent* e)
 	sprintf(temp,"%u.%d",e->peer->address.host, e->peer->address.port);
 	ProtocolPacket* pkt = new ProtocolPacket(e->packet->data, e->packet->dataLength);
 
+	printf("Got packet");
+
 	streamsMutex.lock();
 	auto streamIter = this->packetStreams.find(temp);
 	if (streamIter == this->packetStreams.end())
 	{
+		
+		printf("New connection");
 		if (pkt->isValid() && pkt->opCode() == SessionCreate)
 		{
+		printf("isvalid, create session");
 			this->packetStreams.insert(std::pair<const char*, PacketStream*>(temp, new PacketStream(e->peer)));
 		}
 		

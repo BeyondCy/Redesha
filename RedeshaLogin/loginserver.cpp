@@ -4,23 +4,23 @@ using namespace Redesha;
 
 LoginServer::LoginServer(void)
 {
-	this->clientListener = new UdpStream(5998);
-	this->worldListener = new UdpStream(5999);
+	//this->clientListener = 
+	this->worldManager = new WorldManager(8999);
 }
 
 
 LoginServer::~LoginServer(void)
 {
-	delete this->clientListener;
-	delete this->worldListener;
+	//delete this->clientListener;
+	delete this->worldManager;
 }
 
 void LoginServer::run()
 {
 	while (true)
 	{
-		this->clientListener->process();
-		this->worldListener->process();
+//		this->clientListener->process();
+		this->worldManager->process();
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 }

@@ -2,7 +2,7 @@
 
 using namespace Redesha; 
 
-WorldManager::WorldManager(uint16_t port)
+WorldManager::WorldManager(unsigned short port)
 	: UdpServer(port)
 {
 }
@@ -42,6 +42,10 @@ void WorldManager::handlePacket(PacketStream* stream, ProtocolPacket* p)
 
 void WorldManager::handleRegisterRequest(PacketStream* stream, ProtocolPacket* p)
 {
-	if (p->rawPacketSize() != sizeof(Login_World_RegisterRequest))
+	if (p->payloadSize() != sizeof(Login_World_RegisterRequest))
+	{
+		printf("Payload did not match size");
+	}
 
+	printf("Register!");
 }

@@ -7,12 +7,14 @@ UdpStream::UdpStream(const char* host, unsigned short port)
 {
 	this->initialize();
 	this->setSocket(port, host);
+	this->startThreads();
 }
 
 UdpStream::UdpStream(unsigned short port)
 {
 	this->initialize();
 	this->setSocket(port);
+	this->startThreads();
 }
 
 unsigned int UdpStream::sessions = 0;
@@ -24,7 +26,10 @@ void UdpStream::initialize()
 			throw std::exception("ENet failed to init.");
 
 	++UdpStream::sessions;
-	
+}
+
+void UdpStream::startThreads()
+{
 	this->readThread = std::thread(&UdpStream::readLoop, this);
 	this->writeThread = std::thread(&UdpStream::writeLoop, this);
 }
@@ -103,6 +108,8 @@ void UdpStream::readLoop()
 				}
 			}
 		}
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 }
 

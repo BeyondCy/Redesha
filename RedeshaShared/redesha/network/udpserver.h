@@ -24,7 +24,7 @@ namespace Redesha
 		virtual void handleReceive(ENetEvent* e);
 		virtual void handleDisconnect(ENetEvent* e);
 		virtual void handleWrite();
-		virtual void handleNewStream(PacketStream* stream);
+		//virtual void handleNewStream(PacketStream* stream);
 
 		std::map<const char*, PacketStream*> packetStreams;
 		std::mutex streamsMutex;

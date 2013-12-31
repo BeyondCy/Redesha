@@ -9,7 +9,7 @@ namespace Redesha
 	class WorldManager : UdpServer
 	{
 	public:
-		WorldManager(uint16_t port);
+		WorldManager(unsigned short port);
 		~WorldManager();
 
 		virtual bool process();

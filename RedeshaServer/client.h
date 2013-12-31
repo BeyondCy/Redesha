@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#include <packetstream.h>
+#include <redesha/network/packetstream.h>
 
 namespace Redesha {
 

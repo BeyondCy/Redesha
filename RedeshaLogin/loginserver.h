@@ -4,7 +4,7 @@
 #include <thread>
 #include <chrono>
 
-#include <redesha/network/UdpStream.h>
+#include "worldmanager.h"
 
 namespace Redesha 
 {
@@ -18,8 +18,8 @@ namespace Redesha
 		void run();
 
 	private:
-		UdpStream* worldListener;
-		UdpStream* clientListener;
+		WorldManager* worldManager;
+		UdpServer* clientListener;
 	};
 
 };
