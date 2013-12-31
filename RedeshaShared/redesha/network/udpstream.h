@@ -5,6 +5,7 @@
 
 #include <thread>
 #include <mutex>
+#include <atomic>  
 
 #include <exception>
 
@@ -29,6 +30,12 @@ namespace Redesha
 		virtual bool process() = 0;
 
 		void startThreads();
+		void startReadThread();
+		void startWriteThread();
+
+		void stopThreads();
+		void stopReadThread();
+		void stopWriteThread();
 
 	protected:
 		// networking
@@ -41,6 +48,9 @@ namespace Redesha
 		
 		std::thread readThread;
 		std::thread writeThread;
+		
+		std::atomic<bool> readRun;
+		std::atomic<bool> writeRun;
 
 	private:
 		static unsigned int sessions;

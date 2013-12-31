@@ -26,22 +26,52 @@ void UdpStream::initialize()
 	++UdpStream::sessions;
 }
 
-void UdpStream::startThreads()
-{
-	LOG(INFO) << "UDPStream thread loops spawned by thread id: " << std::this_thread::get_id();
-	this->readThread = std::thread(&UdpStream::readLoop, this);
-	this->writeThread = std::thread(&UdpStream::writeLoop, this);
-}
-
 UdpStream::~UdpStream()
 {
+	this->stopThreads();
+
 	enet_host_destroy(this->socket);
 	
 	--UdpStream::sessions;
 	if (UdpStream::sessions == 0)
 		enet_deinitialize();
 
+}
+
+void UdpStream::startThreads()
+{
+	LOG(INFO) << "UDPStream thread loops spawned by thread id: " << std::this_thread::get_id();
+	this->startReadThread();
+	this->startWriteThread();
+}
+
+void UdpStream::startReadThread()
+{
+	this->readRun = true;
+	this->readThread = std::thread(&UdpStream::readLoop, this);
+}
+
+void UdpStream::startWriteThread()
+{
+	this->writeRun = true;
+	this->writeThread = std::thread(&UdpStream::writeLoop, this);
+}
+
+void UdpStream::stopThreads()
+{
+	this->stopReadThread();
+	this->stopWriteThread();
+}
+
+void UdpStream::stopReadThread()
+{
+	this->readRun = false;
 	this->readThread.join();
+}
+
+void UdpStream::stopWriteThread()
+{
+	this->writeRun = false;
 	this->writeThread.join();
 }
 
@@ -88,7 +118,9 @@ void UdpStream::readLoop()
 		/* Keep doing host_service until no events are left */
 		while (serviceResult > 0)
 		{
-			
+			if (!this->readRun)
+				return;
+
 			serviceResult = enet_host_service(this->socket, &event, 1000);
 
 			if (serviceResult > 0) 
@@ -116,7 +148,7 @@ void UdpStream::readLoop()
 
 void UdpStream::writeLoop()
 {
-	while (true)
+	while (this->writeRun)
 	{
 		this->handleWrite();
 		enet_host_flush(this->socket);

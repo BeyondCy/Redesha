@@ -7,10 +7,12 @@ int main(int argc, char* argv[])
 	try 
 	{
 		Redesha::LoginServer loginServer;
-		loginServer.run();
+		//loginServer.run();
 	}
 	catch (const std::exception &e)
 	{
 		LOG(FATAL) << "Exception: " << e.what();
 	}
+
+	return 0;
 }
