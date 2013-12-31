@@ -68,8 +68,11 @@ void UdpServer::handleWrite()
 	// todo: currently a denial of service attack could occur
 	// we must put a threshold of bytes written and then decay the amount
 	std::vector<PacketStream *> wants_write;
+	
+	streamsMutex.lock();
 	for (auto stream : this->packetStreams)
 		wants_write.push_back(stream.second);
+	streamsMutex.unlock();
 
 	for (auto stream : wants_write)
 		stream->process();
