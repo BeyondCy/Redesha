@@ -70,12 +70,14 @@
   <ItemGroup>
     <ClCompile Include="client.cpp" />
     <ClCompile Include="clientlist.cpp" />
+    <ClCompile Include="loginmanager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="worldserver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="client.h" />
     <ClInclude Include="clientlist.h" />
+    <ClInclude Include="loginmanager.h" />
     <ClInclude Include="worldserver.h" />
   </ItemGroup>
   <ItemGroup>

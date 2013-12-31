@@ -2,23 +2,9 @@
 
 using namespace Redesha;
 
-WorldServer::WorldServer(unsigned short port)
-	: clientList(new ClientList())
+WorldServer::WorldServer(const char* configFile)
 {
-	if (enet_initialize() != 0)
-		throw std::exception("ENet failed to init.");
-
-	this->address.host = ENET_HOST_ANY;
-	this->address.port = port;
-
-	this->server = enet_host_create (& this->address /* the address to bind the server host to */, 
-								 2000      /* allow up to 2000 clients and/or outgoing connections */,
-								  2      /* allow up to 2 channels to be used, 0 and 1 */,
-								  0      /* assume any amount of incoming bandwidth */,
-								  0      /* assume any amount of outgoing bandwidth */);
-
-	if (this->server == NULL)
-		throw std::exception("ENet failed to bind as host socket.");
+	this->loginManager = new LoginManager(
 }
 
 
