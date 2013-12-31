@@ -47,3 +47,9 @@ The RedeshaZone servers are spawned by RedeshaWorld servers and handle most clie
 * ClientManager - read/write IO threads for connecting RedeshaClient clients
 * WorldManager - read/write IO threads for communication wtih RedeshaWorld server
 * Main Thread - Processes packets
+
+
+Shared
+-------------------------
+
+A static shared library is linked to by all servers and the client.  It contains common utilities, 3rd party libraries, and gamewide constants such as opcodes and packet structures.
