@@ -85,3 +85,10 @@ void PacketStream::destroy(ProtocolPacket* p)
 		delete p;
 	p = nullptr;
 }
+
+void PacketStream::destroy(PacketStream* ps)
+{
+	if (ps)
+		delete ps;
+	ps = nullptr;
+}

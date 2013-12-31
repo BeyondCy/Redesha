@@ -30,6 +30,7 @@ namespace Redesha {
 		bool hasInbound();
 
 		static void destroy(ProtocolPacket* p);
+		static void destroy(PacketStream* p);
 
 	private:
 		ENetPeer* peer;

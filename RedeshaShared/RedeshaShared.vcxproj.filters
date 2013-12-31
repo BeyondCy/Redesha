@@ -56,6 +56,9 @@
     <ClCompile Include="enet\win32.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="redesha\network\udpclient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="redesha\network\packetstream.h">
@@ -113,6 +116,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="enet\win32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="redesha\network\udpclient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,7 +13,7 @@ UdpServer::~UdpServer(void)
 {
 	std::lock_guard<std::mutex> lock(this->streamsMutex);
 	for (auto stream : this->packetStreams)
-		delete stream.second;
+		PacketStream::destroy(stream.second);
 }
 
 void UdpServer::handleDisconnect(ENetEvent* e)
@@ -27,9 +27,8 @@ void UdpServer::handleDisconnect(ENetEvent* e)
 	if (streamIter == this->packetStreams.end())
 		return;
 
-	delete streamIter->second;
+	PacketStream::destroy(streamIter->second);
 	this->packetStreams.erase(streamIter);
-
 }
 
 void UdpServer::handleReceive(ENetEvent* e)
@@ -44,12 +43,13 @@ void UdpServer::handleReceive(ENetEvent* e)
 	auto streamIter = this->packetStreams.find(temp);
 	if (streamIter == this->packetStreams.end())
 	{
-		
-		printf("New connection");
 		if (pkt->isValid() && pkt->opCode() == SessionCreate)
 		{
 			LOG(INFO) << "Packet valid, session start: " << e->peer->address.host << "/" << e->peer->address.port;
-			this->packetStreams.insert(std::pair<const char*, PacketStream*>(temp, new PacketStream(e->peer)));
+			PacketStream* stream = new PacketStream(e->peer);
+			this->packetStreams.insert(std::pair<const char*, PacketStream*>(temp, stream));
+			stream->pushOutbound(new ProtocolPacket(pkt->rawPacket(), pkt->rawPacketSize());
+			this->handleNewStream(stream);
 		}
 		
 		PacketStream::destroy(pkt);

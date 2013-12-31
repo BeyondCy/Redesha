@@ -104,6 +104,7 @@
     <ClCompile Include="enet\win32.c" />
     <ClCompile Include="redesha\network\packetstream.cpp" />
     <ClCompile Include="redesha\network\protocolpacket.cpp" />
+    <ClCompile Include="redesha\network\udpclient.cpp" />
     <ClCompile Include="redesha\network\udpstream.cpp" />
     <ClCompile Include="redesha\network\udpserver.cpp" />
   </ItemGroup>
@@ -125,6 +126,7 @@
     <ClInclude Include="redesha\network\packetstream.h" />
     <ClInclude Include="redesha\network\packets\opcodes.h" />
     <ClInclude Include="redesha\network\protocolpacket.h" />
+    <ClInclude Include="redesha\network\udpclient.h" />
     <ClInclude Include="redesha\network\udpstream.h" />
     <ClInclude Include="redesha\network\udpserver.h" />
   </ItemGroup>
