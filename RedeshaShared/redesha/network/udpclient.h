@@ -11,7 +11,7 @@ namespace Redesha
 	class UdpClient : virtual public UdpStream
 	{
 	public:
-		UdpClient(const char* host, unsigned short port);
+		UdpClient(const char* host, unsigned short port, bool startThreads = true);
 		~UdpClient(void);
 
 		virtual bool process() = 0;
@@ -20,6 +20,8 @@ namespace Redesha
 		virtual void handleReceive(ENetEvent* e);
 		virtual void handleDisconnect(ENetEvent* e);
 		virtual void handleWrite();
+
+		void initiateSession();
 
 		PacketStream* packetStream;
 	};
