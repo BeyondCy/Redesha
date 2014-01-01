@@ -81,9 +81,6 @@ bool PacketStream::hasInbound()
 bool PacketStream::hasOutbound()
 {
 	std::lock_guard<std::mutex> lock(this->outboundMutex);
-	unsigned long whatever = 5;
-	unsigned int count = this->outboundPackets.size();
-	return (count > 0);
  	return (this->outboundPackets.size() > 0);
 }
 
