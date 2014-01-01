@@ -125,7 +125,12 @@ void UdpStream::setSocket(unsigned short port, const char* host)
 		/* Try to connect to server within 5 seconds */
 		ENetEvent event;
 		if (enet_host_service (this->socket, &event, 5000) > 0 && event.type == ENET_EVENT_TYPE_CONNECT)
+		{
+			ProtocolPacket p(SessionCreate, 0, 0);
+			ENetPacket* enetPacket = enet_packet_create(p.rawPacket(), p.rawPacketSize(), ENET_PACKET_FLAG_RELIABLE);
+			enet_peer_send(peer, 0, enetPacket);
 			return; // good
+		}
 
 		enet_peer_reset (peer);
 		throw std::runtime_error("Failed to connect to server.");
