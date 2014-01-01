@@ -21,10 +21,6 @@ namespace Redesha
 		~WorldServer(void);
 
 		void run();
-
-	protected:
-
-
 		
 	private:
 		void initLoginManager();

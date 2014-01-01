@@ -33,5 +33,10 @@ void WorldServer::initLoginManager()
 
 void WorldServer::run()
 {
-
+	while (true)
+	{
+//		this->clientListener->process();
+		this->loginManager->process();
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	}
 }
