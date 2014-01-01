@@ -6,7 +6,7 @@ LoginServer::LoginServer(void)
 {
 	//this->clientListener = 
 	LOG(INFO) << "LoginServer starting";
-	this->worldManager = new WorldManager(5998);
+	this->worldManager = new WorldManager(5999);
 }
 
 

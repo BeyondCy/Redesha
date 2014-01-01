@@ -18,8 +18,14 @@ LoginManager::~LoginManager(void)
 
 bool LoginManager::process()
 {
-	while (this->packetStream && this->packetStream->hasInbound())
+	if (!this->packetStream)
+		return false;
+
+	LOG(INFO) << "Processing stream";
+
+	while (this->packetStream->hasInbound())
 	{
+		LOG(INFO) << "Incoming packet";
 		ProtocolPacket* p = this->packetStream->popInbound();
 		this->handlePacket(p);		
 	}
