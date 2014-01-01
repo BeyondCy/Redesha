@@ -199,6 +199,6 @@ void UdpStream::handleDisconnect(ENetEvent* e)
 
 void UdpStream::handleReceive(ENetEvent* e)
 {
-	LOG(INFO) << "Destroying UDP packet from: " << e->peer->address.host << "/" << e->peer->address.port;
+	//LOG(INFO) << "Destroying UDP packet from: " << e->peer->address.host << "/" << e->peer->address.port;
     enet_packet_destroy(e->packet);
 }

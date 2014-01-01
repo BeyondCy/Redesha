@@ -37,6 +37,7 @@ void PacketStream::send(ProtocolPacket* p)
 
 void PacketStream::send(ENetPeer* peer, ProtocolPacket* p)
 {
+	LOG(INFO) << "Sending packet: " << p->opCode() << " size: " << p->rawPacketSize() << " to: " << peer->address.host << "/" << peer->address.port;
 	ENetPacket* enetPacket = enet_packet_create(p->rawPacket(), p->rawPacketSize(), ENET_PACKET_FLAG_RELIABLE);
 	enet_peer_send(peer, p->channel(), enetPacket);
 	PacketStream::destroy(p);

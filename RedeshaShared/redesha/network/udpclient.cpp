@@ -38,12 +38,14 @@ void UdpClient::handleReceive(ENetEvent* e)
 			LOG(INFO) << "Packet valid, session start: " << e->peer->address.host << "/" << e->peer->address.port;
 			this->packetStream = new PacketStream(e->peer);
 		}		
-		PacketStream::destroy(pkt);	
+		else
+		{		
+			PacketStream::destroy(pkt);	
+			return;
+		}
 	}
-	else
-	{
-		this->packetStream->pushInbound(pkt);
-	}
+
+	this->packetStream->pushInbound(pkt);
 
 	UdpStream::handleReceive(e);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
-#define SessionCreate 0x00002001
+#define SessionCreate 0x0001
+#define SessionAccept 0x0002
 
 enum LoginWorldOpcode
 {
