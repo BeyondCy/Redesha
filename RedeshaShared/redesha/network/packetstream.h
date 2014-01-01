@@ -20,6 +20,7 @@ namespace Redesha {
 
 		void process(unsigned int maxPackets = 10);
 		void send(ProtocolPacket* p); // blocks current thread, prefer pushOutbound(p)
+		static void send(ENetPeer* peer, ProtocolPacket* p); // blocks current thread, prefer pushOutbound(p)
 
 		void pushInbound(ProtocolPacket* p);
 		ProtocolPacket* popInbound();

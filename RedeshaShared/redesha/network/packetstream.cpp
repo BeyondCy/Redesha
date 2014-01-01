@@ -32,8 +32,13 @@ void PacketStream::process(unsigned int maxPackets)
 
 void PacketStream::send(ProtocolPacket* p)
 {
+	PacketStream::send(this->peer, p);
+}
+
+void PacketStream::send(ENetPeer* peer, ProtocolPacket* p)
+{
 	ENetPacket* enetPacket = enet_packet_create(p->rawPacket(), p->rawPacketSize(), ENET_PACKET_FLAG_RELIABLE);
-	enet_peer_send(this->peer, p->channel(), enetPacket);
+	enet_peer_send(peer, p->channel(), enetPacket);
 	PacketStream::destroy(p);
 }
 
@@ -76,7 +81,10 @@ bool PacketStream::hasInbound()
 bool PacketStream::hasOutbound()
 {
 	std::lock_guard<std::mutex> lock(this->outboundMutex);
-	return (this->outboundPackets.size() > 0);
+	unsigned long whatever = 5;
+	unsigned int count = this->outboundPackets.size();
+	return (count > 0);
+ 	return (this->outboundPackets.size() > 0);
 }
 
 void PacketStream::destroy(ProtocolPacket* p)
