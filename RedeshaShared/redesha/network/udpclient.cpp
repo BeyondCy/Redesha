@@ -5,6 +5,7 @@ using namespace Redesha;
 UdpClient::UdpClient(const char* host, unsigned short port)
 	: UdpStream(host, port), packetStream(nullptr)
 {
+	int i = 0;
 }
 
 UdpClient::~UdpClient()

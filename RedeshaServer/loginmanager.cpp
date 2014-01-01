@@ -5,7 +5,7 @@ using namespace Redesha;
 LoginManager::LoginManager(const char* host, unsigned short port, 
 							std::string shortname, std::string longname, 
 							std::string account, std::string password)
-	: UdpClient(host, port), 
+	: UdpClient(host, port), UdpStream(host, port),
 		shortname(shortname), longname(longname), 
 		account(account), password(password)
 {

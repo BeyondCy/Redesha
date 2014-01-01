@@ -3,7 +3,7 @@
 using namespace Redesha; 
 
 WorldManager::WorldManager(unsigned short port)
-	: UdpServer(port)
+	: UdpServer(port), UdpStream(port)
 {
 	LOG(INFO) << "WorldManager starting";
 }

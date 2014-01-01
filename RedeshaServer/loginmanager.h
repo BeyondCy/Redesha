@@ -6,7 +6,7 @@
 namespace Redesha 
 {
 
-	class LoginManager : UdpClient
+	class LoginManager : virtual public UdpClient
 	{
 	public:
 		LoginManager(const char* host, unsigned short port, 

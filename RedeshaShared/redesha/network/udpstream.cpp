@@ -2,17 +2,35 @@
 
 using namespace Redesha;
 
+/*
+UdpStream::UdpStream()
+	: socket(nullptr), readRun(false), writeRun(false)
+{
+}
+*/
 
 UdpStream::UdpStream(const char* host, unsigned short port)
+	: socket(nullptr), readRun(false), writeRun(false)
 {
-	this->initialize();
-	this->setSocket(port, host);
+	this->start(host, port);
 }
 
 UdpStream::UdpStream(unsigned short port)
+	: socket(nullptr), readRun(false), writeRun(false)
+{
+	this->start(port);
+}
+
+void UdpStream::start(unsigned short port)
 {
 	this->initialize();
 	this->setSocket(port);
+}
+
+void UdpStream::start(const char* host, unsigned short port)
+{
+	this->initialize();
+	this->setSocket(port, host);
 }
 
 unsigned int UdpStream::sessions = 0;
@@ -30,7 +48,11 @@ UdpStream::~UdpStream()
 {
 	this->stopThreads();
 
-	enet_host_destroy(this->socket);
+	if (this->socket)
+	{
+		enet_host_destroy(this->socket);
+		this->socket = nullptr;
+	}
 	
 	--UdpStream::sessions;
 	if (UdpStream::sessions == 0)
@@ -65,12 +87,16 @@ void UdpStream::stopThreads()
 
 void UdpStream::stopReadThread()
 {
+	if (!this->readRun)
+		return;
 	this->readRun = false;
 	this->readThread.join();
 }
 
 void UdpStream::stopWriteThread()
 {
+	if (!this->writeRun)
+		return;
 	this->writeRun = false;
 	this->writeThread.join();
 }

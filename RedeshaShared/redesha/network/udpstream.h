@@ -19,10 +19,13 @@ namespace Redesha
 	class UdpStream
 	{
 	public:
-		//UdpStream() {}
+		//UdpStream();
 		UdpStream(const char* host, unsigned short port);
-		UdpStream(unsigned short port = 5998);
+		UdpStream(unsigned short port);
 		virtual ~UdpStream();
+
+		void start(const char* host, unsigned short port);
+		void start(unsigned short port);
 	
 		virtual void readLoop(); /* loop over available UDP messages */
 		virtual void writeLoop();

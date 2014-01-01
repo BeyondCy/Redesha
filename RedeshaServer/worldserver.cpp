@@ -3,7 +3,7 @@
 using namespace Redesha;
 
 WorldServer::WorldServer(const char* configFile)
-	: settings(configFile)
+	: settings(configFile), loginManager(nullptr)
 {
 	this->initLoginManager();
 }
@@ -18,7 +18,8 @@ WorldServer::~WorldServer(void)
 
 void WorldServer::initLoginManager()
 {
-	rapidxml::xml_node<>* loginNode = this->settings.first_node("loginmanager");
+	rapidxml::xml_node<>* loginNode = 
+		this->settings.first_node("redesha")->first_node("worldserver")->first_node("loginmanager");
 
 	char* host = loginNode->first_node("host")->value();
 	unsigned short port = atoi(loginNode->first_node("port")->value());
