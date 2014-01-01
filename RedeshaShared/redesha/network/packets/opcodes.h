@@ -1,9 +1,6 @@
 #pragma once
 
-enum ProtocolOpcode
-{
-	SessionCreate = 0x0001
-};
+#define SessionCreate 0x00002001
 
 enum LoginWorldOpcode
 {

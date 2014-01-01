@@ -8,7 +8,7 @@ ProtocolPacket::ProtocolPacket(const unsigned char* rawPacket, size_t rawSize)
     if (rawSize < 4)
         return;
 
-    this->_opcode = (((unsigned short)rawPacket[1])<<8) | rawPacket[2];
+    this->_opcode = (((unsigned short)rawPacket[2])<<8) | rawPacket[1];
 
     this->_rawPacketBuffer = new unsigned char[rawSize];
     std::copy(rawPacket, rawPacket + rawSize, this->_rawPacketBuffer);

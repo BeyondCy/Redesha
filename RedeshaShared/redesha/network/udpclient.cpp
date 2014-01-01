@@ -2,10 +2,11 @@
 
 using namespace Redesha;
 
-UdpClient::UdpClient(const char* host, unsigned short port)
+UdpClient::UdpClient(const char* host, unsigned short port, bool startThreads)
 	: UdpStream(host, port), packetStream(nullptr)
 {
-	int i = 0;
+	if (startThreads)
+		this->startThreads();
 }
 
 UdpClient::~UdpClient()
@@ -49,5 +50,6 @@ void UdpClient::handleReceive(ENetEvent* e)
 
 void UdpClient::handleWrite()
 {
-	packetStream->process();
+	if (this->packetStream)
+		packetStream->process();
 }
