@@ -19,7 +19,8 @@ namespace Redesha
 
 	protected:
 		void handlePacket(ProtocolPacket* p);
-		void handleSessionCreate(ProtocolPacket* p);
+		void handleSessionCreate(const ProtocolPacket* p);
+		void handleRegisterReply(const ProtocolPacket* p);
 
 	private:
 		std::string shortname;

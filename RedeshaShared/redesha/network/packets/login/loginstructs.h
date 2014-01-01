@@ -11,4 +11,8 @@ struct Login_World_RegisterRequest_Struct {
 	char	password[31];			// password for the name
 };
 
+struct Login_World_RegisterReply_Struct {
+	uint8_t approved;
+};
+
 #pragma pack()

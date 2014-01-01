@@ -55,5 +55,13 @@ void WorldManager::handleRegisterRequest(PacketStream* stream, ProtocolPacket* p
 
 	Login_World_RegisterRequest_Struct* s = (Login_World_RegisterRequest_Struct*) p->payload();
 
+	Login_World_RegisterReply_Struct reply;
+	reply.approved = 1;
+
+	ProtocolPacket* outapp =
+		new ProtocolPacket(Login_World_RegisterReply, (unsigned char*) &reply, sizeof(Login_World_RegisterReply_Struct));
+
+	stream->pushOutbound(outapp);
+	
 	LOG(INFO) << "Registered server: " << s->shortname;
 }
