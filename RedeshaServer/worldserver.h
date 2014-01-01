@@ -5,8 +5,11 @@
 
 #include <enet/enet.h>
 
+#include <redesha/xmlsettings.h>
+
 #include "loginmanager.h"
 #include "clientlist.h"
+
 
 namespace Redesha
 {
@@ -18,12 +21,17 @@ namespace Redesha
 		~WorldServer(void);
 
 		void run();
+
+	protected:
+
+
 		
 	private:
+		void initLoginManager();
+		
 		LoginManager* loginManager;
-		//ClientList* clientList;
 
-
+		XMLSettings settings;
 	}; // class Worldserver
 
 }; // namespace Redesha

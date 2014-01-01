@@ -1,3 +1,5 @@
+#pragma once
+
 enum ProtocolOpcode
 {
 	SessionCreate = 0x0001

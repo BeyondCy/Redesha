@@ -9,16 +9,23 @@ namespace Redesha
 	class LoginManager : UdpClient
 	{
 	public:
-		LoginManager(const char* host, unsigned short port);
+		LoginManager(const char* host, unsigned short port, 
+						std::string shortname, std::string longname, 
+						std::string account, std::string password);
+
 		~LoginManager(void);
 
 		virtual bool process();
 
 	protected:
-
 		void handlePacket(ProtocolPacket* p);
-
 		void handleSessionCreate(ProtocolPacket* p);
+
+	private:
+		std::string shortname;
+		std::string longname;
+		std::string account;
+		std::string password;
 	};
 
 }

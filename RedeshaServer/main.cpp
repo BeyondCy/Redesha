@@ -1,18 +1,19 @@
-#include <stdio.h>
 #include "WorldServer.h"
+
+#define _ELPP_THREAD_SAFE
+_INITIALIZE_EASYLOGGINGPP
 
 int main(int argc, char* argv[])
 {
 	try
 	{
-		Redesha::WorldServer server(5998);
+		Redesha::WorldServer server("redesha_world_config.xml");
 		server.run();
 	}
 	catch (const std::exception &e)
 	{
-		fprintf(stderr, "Exception: %s", e.what());
+		LOG(FATAL) << "Exception: " << e.what();
 	}
 
-	getchar();
 	return 0;
 }

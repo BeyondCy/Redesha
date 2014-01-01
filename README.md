@@ -18,7 +18,13 @@ Redesha is an open source 3D MMO project using the following permissively-licens
 </tr><tr>
 	<td>ENet</td><td>Network</td><td>http://enet.bespin.org</td><td>ENet</td>
 </tr><tr>
+	<td>LUA</td><td>Scripting</td><td>http://www.lua.org</td><td>MIT</td>
+</tr>
+<tr>
 	<td>RapidXML</td><td>Parser</td><td>http://rapidxml.sourceforge.net</td><td>Boost</td>
+</tr>
+<tr>
+	<td>Easylogging++</td><td>Logger</td><td>http://easylogging.org</td><td>MIT</td>
 </tr>
 </table>
 </p>

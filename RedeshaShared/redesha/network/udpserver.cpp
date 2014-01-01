@@ -48,8 +48,8 @@ void UdpServer::handleReceive(ENetEvent* e)
 			LOG(INFO) << "Packet valid, session start: " << e->peer->address.host << "/" << e->peer->address.port;
 			PacketStream* stream = new PacketStream(e->peer);
 			this->packetStreams.insert(std::pair<const char*, PacketStream*>(temp, stream));
-			stream->pushOutbound(new ProtocolPacket(pkt->rawPacket(), pkt->rawPacketSize());
-			this->handleNewStream(stream);
+			stream->pushOutbound(new ProtocolPacket(pkt->rawPacket(), pkt->rawPacketSize()));
+			this->handleNewStream(temp, stream);
 		}
 		
 		PacketStream::destroy(pkt);

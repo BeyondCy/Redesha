@@ -107,6 +107,7 @@
     <ClCompile Include="redesha\network\udpclient.cpp" />
     <ClCompile Include="redesha\network\udpstream.cpp" />
     <ClCompile Include="redesha\network\udpserver.cpp" />
+    <ClCompile Include="redesha\xmlsettings.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="enet\callbacks.h" />
@@ -129,6 +130,7 @@
     <ClInclude Include="redesha\network\udpclient.h" />
     <ClInclude Include="redesha\network\udpstream.h" />
     <ClInclude Include="redesha\network\udpserver.h" />
+    <ClInclude Include="redesha\xmlsettings.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

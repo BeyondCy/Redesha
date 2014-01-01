@@ -27,6 +27,10 @@ bool WorldManager::process()
 	return true;
 }
 
+void WorldManager::handleNewStream(const char* name, PacketStream* stream)
+{
+}
+
 void WorldManager::handlePacket(PacketStream* stream, ProtocolPacket* p)
 {
 	switch (p->opCode())
@@ -43,10 +47,13 @@ void WorldManager::handlePacket(PacketStream* stream, ProtocolPacket* p)
 
 void WorldManager::handleRegisterRequest(PacketStream* stream, ProtocolPacket* p)
 {
-	if (p->payloadSize() != sizeof(Login_World_RegisterRequest))
+	if (p->payloadSize() != sizeof(Login_World_RegisterRequest_Struct))
 	{
-		printf("Payload did not match size");
+		LOG(WARNING) << "Payload did not match size for Logins";
+		return;
 	}
 
-	printf("Register!");
+	Login_World_RegisterRequest_Struct* s = (Login_World_RegisterRequest_Struct*) p->payload();
+
+	LOG(INFO) << "Registered server: " << s->shortname;
 }

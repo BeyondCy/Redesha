@@ -2,6 +2,7 @@
 #define REDESHA_WORLDMANAGER_H
 
 #include <redesha/network/udpserver.h>
+#include <redesha/network/packets/login/loginstructs.h>
 
 namespace Redesha 
 {
@@ -15,9 +16,10 @@ namespace Redesha
 		virtual bool process();
 
 	protected:
-		void handlePacket(PacketStream* stream, ProtocolPacket* p);
+		virtual void handlePacket(PacketStream* stream, ProtocolPacket* p);
+		virtual void handleNewStream(const char* name, PacketStream* stream);
 
-		void handleRegisterRequest(PacketStream* stream, ProtocolPacket* p);
+		virtual void handleRegisterRequest(PacketStream* stream, ProtocolPacket* p);
 	};
 
 }
