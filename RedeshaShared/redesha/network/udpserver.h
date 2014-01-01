@@ -14,7 +14,7 @@ namespace Redesha
 	class UdpServer : virtual public UdpStream
 	{
 	public:
-		UdpServer(unsigned short port);
+		UdpServer(unsigned short port, bool startThreads = true);
 		~UdpServer(void);
 
 		virtual bool process() = 0;

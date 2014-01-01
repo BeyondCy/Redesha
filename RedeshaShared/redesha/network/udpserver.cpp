@@ -2,10 +2,11 @@
 
 using namespace Redesha;
 
-UdpServer::UdpServer(unsigned short port)
+UdpServer::UdpServer(unsigned short port, bool startThreads)
 	: UdpStream(port)
 {
-	this->startThreads();
+	if (startThreads)
+		this->startThreads();
 }
 
 
@@ -37,7 +38,7 @@ void UdpServer::handleReceive(ENetEvent* e)
 	sprintf(temp,"%u.%d",e->peer->address.host, e->peer->address.port);
 	ProtocolPacket* pkt = new ProtocolPacket(e->packet->data, e->packet->dataLength);
 
-	LOG(INFO) << "Received packet, size: " << pkt->rawPacketSize();
+	LOG(INFO) << "Received packet opcode: "<< pkt->opCode() << ", size: " << pkt->rawPacketSize() << " want: " << (unsigned short) SessionCreate;
 
 	streamsMutex.lock();
 	auto streamIter = this->packetStreams.find(temp);
